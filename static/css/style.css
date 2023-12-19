@@ -3,3 +3,7 @@
     height: 280px !important;
     object-fit: cover;
 }
+.errorlist{
+    margin: 2;
+    color: tomato;
+}

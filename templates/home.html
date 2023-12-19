@@ -34,58 +34,19 @@
             </div>
         </div>
         
-<!--Images-->
+        <!--Images-->
         <div class="row">
+            {% for object in object_list %}
             <div class="col-lg-4 my-2">
                 <div class="card">
-                    <img src="{% static 'images/Building/building34.png' %}" class="img-fluid gallery-images" alt="...">
+                    <img src="{{ object.image.url }}" class="img-fluid gallery-images" alt="...">
                     <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 my-2">
-                <div class="card">
-                    <img src="{% static 'images/Sky and Cloud/cloud8.png' %}" class="img-fluid gallery-images" alt="...">
-                    <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 my-2">
-                <div class="card">
-                    <img src="{% static 'images/Nature/nature7.png' %}" class="img-fluid gallery-images" alt="...">
-                    <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 my-2">
-                <div class="card">
-                    <img src="{% static 'images/Building/building5.png' %}" class="img-fluid gallery-images" alt="...">
-                    <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 my-2">
-                <div class="card">
-                    <img src="{% static 'images/Sky and Cloud/cloud2.png' %}" class="img-fluid gallery-images" alt="...">
-                    <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 my-2">
-                <div class="card">
-                    <img src="{% static 'images/Nature/nature1.png' %}" class="img-fluid gallery-images" alt="...">
-                    <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
+                      <a data-bs-toggle="modal" data-bs-target="#exampleModal_{{ object.id }}" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
                     </div>
                 </div>
             </div>
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal_{{ object.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -93,13 +54,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="my-2 py-4 lead">
-                            <img style = "width: 100%;" src="{% static 'images/Building/building34.png' %}" alt="">
+                            <img style = "width: 100%;" src="{{ object.image.url }}" alt="">
                         </div>
-                        <p>A shot of Temple of Literature</p>
+                        <p ms-2>{{ object.description }}</p>
                     </div>
                 </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
