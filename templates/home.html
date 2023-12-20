@@ -8,7 +8,7 @@
 <section class="my-5">
     <div class="container">
         <div class="row my-2 py-4">
-            <div class="col-lg-12 align-items-center">
+            <div class="col-12 align-items-center">
                 <!--Các chủ đề ảnh-->
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -28,7 +28,7 @@
                       </li>
                       <!--Nút thêm ảnh-->
                     <li class="nav-item ms-auto">
-                        <a class="btn btn-primary px-4 btn-lg" href="{% url 'upload-image'%}">Add Image</a>
+                        <a class="btn btn-primary px-4 btn" href="{% url 'upload-image'%}">Add Image</a>
                     </li>
                 </ul>
             </div>
@@ -37,11 +37,11 @@
         <!--Images-->
         <div class="row">
             {% for object in object_list %}
-            <div class="col-lg-4 my-2">
+            <div class="col-4 my-2 d-flex">
                 <div class="card">
-                    <img src="{{ object.image.url }}" class="img-fluid gallery-images" alt="...">
+                    <img src="{{ object.image.url }}" class="img-fluid gallery-images" alt="">
                     <div class="card-body">
-                      <a data-bs-toggle="modal" data-bs-target="#exampleModal_{{ object.id }}" href="#" class="btn btn-outline-primary px-4 btn-lg">View Image</a>
+                      <a data-bs-toggle="modal" data-bs-target="#exampleModal_{{ object.id }}" href="#" class="btn btn-outline-primary px-4 btn">View Image</a>
                     </div>
                 </div>
             </div>

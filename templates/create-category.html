@@ -5,15 +5,15 @@
 <section class ="my-5">
     <div class="container">
         <div class="row justify-content-center py4">
-            <div class="col-lg-8 my-2">
+            <div class="col-8 my-2">
                 <h3>Create new category</h3> 
                 <hr>
             </div>
-            <form class="col-lg-8 my-2" method="POST">
+            <form class="col-8 my-2" method="POST">
                 {% csrf_token %}
                 <div class="form-group my-2 d-flex flex-row">
                     <input class="form-control" type="text" name="title">
-                    <button class="btn btn-primary btn-lg px-4 ms-2">Add</button>
+                    <button class="btn btn-primary btn px-4 ms-2">Add</button>
                 </div>
                 {{ form.title.errors }}
             </form>
