@@ -11,21 +11,27 @@
             <div class="col-12 align-items-center">
                 <!--Các chủ đề ảnh-->
                 <ul class="nav nav-pills">
+                    {% if selected_category == "All" %}
                     <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="#">All</a>
                     </li>
+                    {% else %}
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Nature</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Building</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Sky and Cloud</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">The End</a>
+                        <a class="nav-link " aria-current="page" href="#">All</a>
                       </li>
+                    {% endif  %}
+                    {% for category in categories %}
+                    {% if selected_category == category.title%}
+                    <li class="nav-item">
+                      <a class="nav-link active" href="?category={{category.title}}">{{category.title|title}}</a>
+                    <li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link " href="?category={{category.title}}">{{category.title|title}}</a>
+                      <li>
+                    {% endif %}
+                    {% endfor %}
+                    
                       <!--Nút thêm ảnh-->
                     <li class="nav-item ms-auto">
                         <a class="btn btn-primary px-4 btn" href="{% url 'upload-image'%}">Add Image</a>
