@@ -39,7 +39,7 @@
             {% for object in object_list %}
             <div class="col-4 my-2 d-flex">
                 <div class="card">
-                    <img src="{{ object.image.url }}" class="img-fluid gallery-images" alt="">
+                    <img src="{{ object.image.url }}" class="img-fluid gallery-images rounded-1" alt="">
                     <div class="card-body">
                       <a data-bs-toggle="modal" data-bs-target="#exampleModal_{{ object.id }}" href="#" class="btn btn-outline-primary px-4 btn">View Image</a>
                     </div>
@@ -54,7 +54,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="my-2 py-4 lead">
-                            <img style = "width: 100%;" src="{{ object.image.url }}" alt="">
+                            <img class = "rounded" style = "width: 100%;" src="{{ object.image.url }}" alt="">
+                            <hr>
                         </div>
                         <p ms-2>{{ object.description }}</p>
                     </div>
