@@ -13,25 +13,28 @@
             <div class="col-12 align-items-center">
                 <!--Các chủ đề ảnh-->
                 <ul class="nav nav-pills">
+                    <!--Nếu chọn chủ đề là "ALl" thì trở về trang chủ và hiện trạng thái active-->
                     {% if selected_category == "All" %}
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">All</a>
+                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">All</a>
                     </li>
-                    {% else %}
+                    {% else %} <!--Nếu không phải chủ đề "All" thì không hiện trạng thái active-->
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">All</a>
-                      </li>
+                        <a class="nav-link " aria-current="page" href="{% url 'home' %}">All</a>
+                    </li>
                     {% endif  %}
+
+                    <!--Với các chủ đề còn lại, nếu chọn vào chủ đề nào, thì chuyển tới chủ đề đó và hiển thị trạng thái active-->
                     {% for category in categories %}
                     {% if selected_category == category.title%}
                     <li class="nav-item">
                       <a class="nav-link active" href="?category={{category.title}}">{{category.title|title}}</a>
                     <li>
-                    {% else %}
+                    {% else %} <!--Nếu không phải chủ đề đang chọn thì không hiển thị trạng thái active-->
                     <li class="nav-item">
                         <a class="nav-link " href="?category={{category.title}}">{{category.title|title}}</a>
                       <li>
-                    {% endif %}
+                    {% endif %} 
                     {% endfor %}
                     
                       <!--Nút thêm ảnh-->
