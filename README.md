@@ -8,7 +8,7 @@
 - Mỗi thành viên tạo một nhánh mới từ nhánh main để thực hiện công việc của bản thân.
 `git checkout -b <ten_nhanh>`
 
-**3. Thựch iện công việc:**
+**3. Thực hiện công việc:**
 - Các thành viên thực hiện thay đổi, sau khi hoàn tất kiểm tra, sử dụng các lệnh :
 `git add .  -> git commit -m"<thay_doi>"`
 
