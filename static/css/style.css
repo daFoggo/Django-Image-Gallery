@@ -10,6 +10,9 @@
 body {
     font-family: 'JetBrains Mono', monospace;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 .gallery-images{
     width: 100%;
     height: 280px !important;
@@ -32,9 +35,19 @@ body {
 .login a{
     color: #0d6efd;
 }
+.fixed-pos{
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: sticky;
+}
 @media (prefers-color-scheme: dark) {
     body{
         background-color: var(--body-color);
+    }
+    hr{
+        color: var(--button-hover-border-color);
     }
     .bg-primary{
         background-color: var(--header-color) !important;
