@@ -34,6 +34,20 @@ body::-webkit-scrollbar {
 }
 .login a{
     color: #0d6efd;
+    background-color: #ffffff;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    padding: 20px;
+    color: #ffffff;
+}
+.git-hub{
+    background-color: #202132;
+    border-radius: 360px;
+    border-width: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .fixed-pos{
     z-index: 1;
