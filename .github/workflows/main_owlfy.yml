@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'Owlfy'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9B7DCEFC8E964E0CA97AB26FFEF1BE6F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CFC19B4B0D04431489E17BCF6AB06F91 }}
