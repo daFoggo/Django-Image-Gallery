@@ -28,14 +28,9 @@ body::-webkit-scrollbar {
 }
 .logo{
     display: flex;
-    align-items: center;
 }
 .logo h1{
     font-size:30px;
-}
-.header{
-    display: flex;
-    align-items: center;
 }
 .search-bar{
     flex: 0.9;
