@@ -12,3 +12,4 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category #Tạo biểu mẫu theo model Category
         fields = "__all__"
+    

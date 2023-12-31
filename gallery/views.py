@@ -1,36 +1,50 @@
-from django.views import generic #Sử dụng module generic để xử lí các yêu cầu HTTP
-from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược về các trang html
+from django.views import generic #Sử dụng module generic để sử dụng các class view xử lí các HTTP request
+from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược đến các URL
 
-from .models import Category, Gallery 
+from .models import Category, Gallery
 from .forms import GalleryForm, CategoryForm
 
-class Home(generic.ListView):
-    model = Gallery #Sử dụng model Gallery cho lớp home
-    template_name = 'home.html' #Trả về template home.html
-    queryset = Gallery.objects.all() #Queryset là tập hợp các đối tượng từ cơ sở dữ liệu, trong trường hợp này là tất cả các đối tượng trong model Gallery
-    
-    def get_queryset(self):
+class Home(generic.ListView): #Class Home kế thừa class ListView từ module generic
+    model = Gallery 
+    template_name = 'home.html'
+    queryset = Gallery.objects.all() #Lấy tất cả các đối tượng trong model Gallery
+
+    def get_queryset(self): #Hàm get_queryset() sẽ lọc các đối tượng trong model Gallery theo category
         queryset = super().get_queryset()
-        category = self.request.GET.get('category', None) #Từ queryset lấy ra các đối tượng là category
+        category = self.request.GET.get('category', None)
         if category:
-            queryset = queryset.filter(category__title=category) #Lọc các đối tượng (hình ảnh) thuộc category đó
+            queryset = queryset.filter(category__title=category)
         return queryset
-    
-    def get_context_data(self, **kwargs):
+
+    def get_context_data(self, **kwargs): #Hàm get_context_data() sẽ trả về context chứa các thông tin về category được chọn
         context = super().get_context_data(**kwargs)
         category = self.request.GET.get('category', None)
-        context['selected_category'] = category if category else "All" #Thay đổi giá trị của từ khoá 'selected_category' trong từ điển context. Dữ liệu này được
-                                                                       #dùng cho dòng 17 trong template home.html
+        context['selected_category'] = category if category else "All"
+        return context
+
+class UploadImage(generic.CreateView): #Sử dụng model Gallery và dẫn tới template upload-image.html
+    model = Gallery
+    template_name = "upload-image.html"
+    form_class = GalleryForm
+    success_url = reverse_lazy('home')
+
+class CreateCategory(generic.CreateView): #Sử dụng model Category và dẫn tới template create-category.html
+    model = Category
+    template_name = "create-category.html"
+    form_class = CategoryForm
+    success_url = reverse_lazy('upload-image')
+
+class SearchResultsView(generic.ListView): #Sử dụng model Gallery và dẫn tới template search-results.html
+    model = Gallery
+    template_name = "search-results.html"
+    
+    def get_queryset(self): #Hàm get_queryset() sẽ lọc các đối tượng trong model Gallery theo category
+        category = self.request.GET.get('q')
+        queryset = Gallery.objects.filter(category__title__icontains=category)
+        return queryset
+    
+    def get_context_data(self, **kwargs): #Hàm get_context_data() sẽ trả về context chứa các thông tin về category được chọn
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.request.GET.get('q')
         return context
     
-class UploadImage(generic.CreateView):
-    model = Gallery 
-    template_name = "upload-image.html" #Trả về template upload-image.html
-    form_class = GalleryForm
-    success_url = reverse_lazy('home') #Quay về trang home.html sau khi upload thành công
-    
-class CreateCategory(generic.CreateView):
-    model = Category
-    template_name = "create-category.html" #Trả về template create-category.html
-    form_class = CategoryForm
-    success_url = reverse_lazy('upload-image') #Quay về trang upload-image.html sau khi tạo category thành công

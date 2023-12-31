@@ -7,11 +7,15 @@
     --button-hover-border-color: #555a86;
     --text-color: #cad3f5;
 }
+
 body {
     font-family: 'JetBrains Mono', monospace;
 }
 body::-webkit-scrollbar {
     display: none;
+}
+.row{
+    margin-bottom: 50px;
 }
 .gallery-images{
     width: 100%;
@@ -29,6 +33,17 @@ body::-webkit-scrollbar {
 .logo h1{
     font-size:30px;
 }
+.header{
+    display: flex;
+    align-items: center;
+}
+.search-bar{
+    flex: 0.9;
+}
+.search-bar button{
+    color: #0d6efd;
+    background-color: #ffffff;
+}
 .navbar{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
@@ -36,25 +51,18 @@ body::-webkit-scrollbar {
     color: #0d6efd;
     background-color: #ffffff;
 }
-.footer{
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-    padding: 20px;
-    color: #ffffff;
-}
-.git-hub{
-    background-color: #202132;
-    border-radius: 360px;
-    border-width: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 .fixed-pos{
     z-index: 1;
     top: 0;
     left: 0;
     right: 0;
     position: sticky;
+}
+.category-title{
+    margin-top: 50px;
+}
+.category-title a{
+    text-decoration: none;
 }
 @media (prefers-color-scheme: dark) {
     body{
@@ -75,6 +83,12 @@ body::-webkit-scrollbar {
         color: #cad3f5 !important;
         border-color: var(--button-hover-border-color) !important;
     }
+    .search-bar button{
+        color: #ffffff;
+    }
+    .search-bar button:hover{
+        color: #cad3f5;
+    }
     .login a{
         color: white !important;
         background-color: #363a4f;
@@ -82,6 +96,14 @@ body::-webkit-scrollbar {
     .login a:hover{
         background-color: var(--button-bg-hover-color) !important;
         color: #cad3f5 !important;
+    }
+    .category-title{
+        margin-top: 50px;
+        color: #ffffff;
+    }
+    .category-title a{
+        color: var(--button-bg-color);
+        text-decoration: none;
     }
     .nav-item a{
         color: var(--button-bg-color);
@@ -114,18 +136,5 @@ body::-webkit-scrollbar {
     }
     .container h3{
         color: var(--button-bg-color) !important;
-    }
-    .footer{
-        display: flex;
-        flex-direction: column;
-        margin-top: 100px;
-        padding: 20px;
-        color: var(--text-color);
-    }
-    .git-hub{
-        background-color: #202132;
-        border-radius: 360px;
-        border-width: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 }
