@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-=======
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-<<<<<<< HEAD
   font-family: 'Jetbrains Mono',sans-serif;
 }
 body{
@@ -15,16 +10,6 @@ body{
 }
 ::selection{
   background: #1f7af1;
-=======
-  font-family: 'Poppins',sans-serif;
-}
-body{
-  background: #1abc9c;
-  overflow: hidden;
-}
-::selection{
-  background: rgba(26,188,156,0.3);
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 }
 .container{
   max-width: 440px;
@@ -39,11 +24,7 @@ body{
 }
 .wrapper .title{
   height: 90px;
-<<<<<<< HEAD
   background: #2f8cf5;
-=======
-  background: #16a085;
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -71,13 +52,8 @@ body{
   transition: all 0.3s ease;
 }
 form .row input:focus{
-<<<<<<< HEAD
   border-color: #2f8cf5;
   box-shadow: inset 0px 0px 2px 2px rgba(47,140,245,0.25);
-=======
-  border-color: #16a085;
-  box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 }
 form .row input::placeholder{
   color: #999;
@@ -88,13 +64,8 @@ form .row input::placeholder{
   height: 100%;
   color: #fff;
   font-size: 18px;
-<<<<<<< HEAD
   background: #2f8cf5;
   border: 1px solid #1e75e9;
-=======
-  background: #16a085;
-  border: 1px solid #16a085;
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -104,44 +75,28 @@ form .row input::placeholder{
   margin: -8px 0 20px 0;
 }
 .wrapper form .pass a{
-<<<<<<< HEAD
   color: #2f8cf5;
-=======
-  color: #16a085;
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
   font-size: 17px;
   text-decoration: none;
 }
 .wrapper form .pass a:hover{
   text-decoration: underline;
 }
-<<<<<<< HEAD
 .messages li{
   color: tomato;
   margin: 15px;
 }
-=======
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 .wrapper form .button input{
   color: #fff;
   font-size: 20px;
   font-weight: 500;
   padding-left: 0px;
-<<<<<<< HEAD
   background: #2f8cf5;
   border: 1px solid #2f8cf5;
   cursor: pointer;
 }
 form .button input:hover{
   background: #256ec2;
-=======
-  background: #16a085;
-  border: 1px solid #16a085;
-  cursor: pointer;
-}
-form .button input:hover{
-  background: #12876f;
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 }
 
 /* Style the anchor tag to look like a button */
@@ -174,16 +129,11 @@ form .button input:hover{
   font-size: 17px;
 }
 .wrapper form .signup-link a{
-<<<<<<< HEAD
   color: #2f8cf5;
-=======
-  color: #16a085;
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
   text-decoration: none;
 }
 form .signup-link a:hover{
   text-decoration: underline;
-<<<<<<< HEAD
 }
 
 @media (prefers-color-scheme: dark) {
@@ -220,6 +170,4 @@ form .signup-link a:hover{
   .wrapper form .signup-link a{
     color: #383a58;
   }
-=======
->>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 }
