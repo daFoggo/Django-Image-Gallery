@@ -11,41 +11,52 @@
 body {
     font-family: 'JetBrains Mono', monospace;
 }
+
 body::-webkit-scrollbar {
     display: none;
 }
+
 .row{
     margin-bottom: 50px;
 }
+
 .gallery-images{
     width: 100%;
     height: 280px !important;
     object-fit: cover;
 }
+
 .errorlist{
     margin: 2px;
     color: tomato;
 }
+
 .logo{
     display: flex;
 }
+
 .logo h1{
     font-size:30px;
 }
+
 .search-bar{
     flex: 0.9;
 }
+
 .search-bar button{
     color: #0d6efd;
     background-color: #ffffff;
 }
+
 .navbar{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
+
 .login a{
     color: #0d6efd;
     background-color: #ffffff;
 }
+
 .fixed-pos{
     z-index: 1;
     top: 0;
@@ -53,82 +64,104 @@ body::-webkit-scrollbar {
     right: 0;
     position: sticky;
 }
+
 .category-title{
     margin-top: 50px;
 }
+
 .category-title a{
     text-decoration: none;
 }
+
 @media (prefers-color-scheme: dark) {
     body{
         background-color: var(--body-color);
     }
+
     hr{
         color: var(--button-hover-border-color);
     }
+
     .bg-primary{
         background-color: var(--header-color) !important;
     }
+
     .btn-primary{
         background-color: var(--button-bg-color) !important;
         border-color: var(--button-border-color) !important;
     }
+
     .btn-primary:hover{
         background-color: var(--button-bg-hover-color) !important;
         color: #cad3f5 !important;
         border-color: var(--button-hover-border-color) !important;
     }
+
     .search-bar button{
         color: #ffffff;
     }
+    
     .search-bar button:hover{
         color: #cad3f5;
     }
+
     .login a{
         color: white !important;
         background-color: #363a4f;
     }
+    
     .login a:hover{
         background-color: var(--button-bg-hover-color) !important;
         color: #cad3f5 !important;
     }
+
     .category-title{
         margin-top: 50px;
         color: #ffffff;
     }
+
     .category-title a{
         color: var(--button-bg-color);
         text-decoration: none;
     }
+
     .nav-item a{
         color: var(--button-bg-color);
     }
+
     .nav-item a:hover{
         color: #ffffff !important;
-    }   
+    }  
+
     .active{ 
         background-color: var(--button-bg-color) !important;
         color:  #ffffff!important;
     }
+
     .active:hover{
         background-color: var(--button-bg-hover-color) !important;
         color: #cad3f5 !important;
     }
+
     .card{
         background-color: var(--header-color) !important;
     }
+
     .btn-outline-primary{
         border-color: var(--button-border-color) !important;
         color: var(--button-bg-color) !important;
     }
+
     .btn-outline-primary:hover{
         background-color: var(--button-bg-color) !important;
         color: #ffffff !important;
     }
+
     .modal-content{
         background-color: var(--header-color) !important;
         color: var(--text-color) !important;
     }
+    
     .container h3{
         color: var(--button-bg-color) !important;
     }

@@ -53,26 +53,32 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #2a91ff;
 }
+
 @media (prefers-color-scheme: dark) {
     body{
-        background-color: #2b2c40;
+        background-color: #181926;
     }
+
     form{
         background-color: #383a58;
     }
+
     label{
         color: #ffffff;
     }
+
     input[type="text"],
     input[type="password"],
     input[type="email"]{
         background-color: #ffffff;
         border: 1px solid #2b2c40;
     }
+
     input[type="submit"]{
         background-color: #2b2c40;
         color: #ffffff;
     }
+    
     input[type="submit"]:hover{
         background-color: #50537e;
     }

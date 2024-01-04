@@ -1,11 +1,13 @@
 from django.views import generic #Sử dụng module generic để sử dụng các class view xử lí các HTTP request
 from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược đến các URL
 from django.shortcuts import render, redirect
-from django.contrib import auth, messages
-from django.contrib.auth.decorators import login_required
+
+from django.contrib import auth, messages  #Sử dụng module messages để hiển thị thông báo
+from django.contrib.auth.decorators import login_required #Sử dụng module login_required sử dụng cho các tính năng cần đăng nhập
+from django.contrib.auth.models import auth 
+
 from .models import Category, Gallery
-from .forms import GalleryForm, CategoryForm, LoginForm, signupform
-from django.contrib.auth.models import auth
+from .forms import GalleryForm, CategoryForm, LoginForm, Signupform
 
 class Home(generic.ListView): #Class Home kế thừa class ListView từ module generic
     model = Gallery 
@@ -51,7 +53,7 @@ class SearchResultsView(generic.ListView): #Sử dụng model Gallery và dẫn 
         context['category'] = self.request.GET.get('q')
         return context
 
-def Login(request):
+def Login(request): 
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -65,16 +67,16 @@ def Login(request):
             
     return render(request, 'login.html', {'form': LoginForm})
 
-@login_required
+@login_required #Chỉ cho phép người dùng đăng xuất khi đã đăng nhập
 def logout(request):
     auth.logout(request)
     messages.info(request, 'You have been logged out!!')
     return redirect('home')
 
 def signup(request):
-    form = signupform()
+    form = Signupform()
     if request.method =="POST":
-        form = signupform(request.POST)
+        form = Signupform(request.POST)
 
         if form.is_valid():
             form.save()

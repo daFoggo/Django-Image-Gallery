@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap">
   </head>
-  <body>
-    
-    <div class="container">
-      <div class="wrapper">
-        <div class="title"><span>Dive into Owlfy</span></div>
 
+  <body>
+    <div class="container"> 
+      <div class="wrapper">
+        <!--Tiêu đề-->
+        <div class="title">-->
+        <span>Dive into Owlfy</span>
+        <img src="static/Logo/logo.png" alt="" width = 50px height = 50px>
+        </div>
+
+        <!--Form đăng nhập-->
         <form name="LoginForm" action="{% url 'login' %}" method="post">
           {% csrf_token %}
           <div class="row">
@@ -26,6 +31,7 @@
             <input type="password" id="id_password" name="password" placeholder="Password" required>
           </div>
 
+          <!--Thông báo lỗi-->
           {% if messages %}
           <ul class="messages">
             {% for message in messages %}
@@ -34,6 +40,7 @@
           </ul>
           {% endif %}
           
+          <!--Các liên kết khác-->
           <div class="pass"><a href="#">Forgot password?</a></div>
           <div class="row button">
             <input type="submit" value="Login">
