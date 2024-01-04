@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.views import generic #Sử dụng module generic để sử dụng các class view xử lí các HTTP request
 from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược đến các URL
 from django.shortcuts import render, redirect
@@ -11,6 +12,15 @@ class Home(generic.ListView): #Class Home kế thừa class ListView từ module
     model = Gallery 
     template_name = 'home.html'
     queryset = Gallery.objects.all() #Lấy tất cả các đối tượng trong model Gallery
+=======
+from django.views import generic #Sử dụng module generic để xử lí các yêu cầu HTTP
+from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược về các trang html
+from django.shortcuts import render, redirect
+from django.contrib import auth, messages
+from .models import Category, Gallery 
+from .forms import GalleryForm, CategoryForm,LoginForm,signupform
+from django.contrib.auth.models import User,auth
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 
     def get_queryset(self): #Hàm get_queryset() sẽ lọc các đối tượng trong model Gallery theo category
         queryset = super().get_queryset()
@@ -35,6 +45,7 @@ class CreateCategory(generic.CreateView): #Sử dụng model Category và dẫn 
     model = Category
     template_name = "create-category.html"
     form_class = CategoryForm
+<<<<<<< HEAD
     success_url = reverse_lazy('upload-image')
 
 class SearchResultsView(generic.ListView): #Sử dụng model Gallery và dẫn tới template search-results.html
@@ -50,12 +61,17 @@ class SearchResultsView(generic.ListView): #Sử dụng model Gallery và dẫn 
         context = super().get_context_data(**kwargs)
         context['category'] = self.request.GET.get('q')
         return context
+=======
+    success_url = reverse_lazy('upload-image') #Quay về trang upload-image.html sau khi tạo category thành công
+
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 
 def Login(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
         user =auth.authenticate(username=username,password=password)
+<<<<<<< HEAD
         
         if user is not None:
             auth.login(request,user)
@@ -70,6 +86,19 @@ def logout(request):
     auth.logout(request)
     messages.info(request, 'You have been logged out!!')
     return redirect('home')
+=======
+        if user is not None:
+            auth.login(request,user)
+            return redirect ('index')
+        else :
+            messages.error(request,"Invalid login details")
+    return render(request, 'login.html', {'form': LoginForm})
+
+def logout(request):
+    auth.logout(request)
+    messages.info(request, 'You have been logged out!!')
+    return render(request, 'Home')
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
 
 def signup(request):
     form = signupform()
@@ -80,4 +109,9 @@ def signup(request):
             form.save()
             return redirect('login')
     context ={'form':form}
+<<<<<<< HEAD
     return render(request,'signup.html',context=context)
+=======
+    return render(request,'signup.html',context=context)
+    
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b

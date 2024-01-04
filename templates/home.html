@@ -1,5 +1,5 @@
 {% extends 'base.html' %} <!--Kế thừa từ base.html-->
-{% load static %} <!--Tải các file tĩnh lên từ folder static-->>
+{% load static %} <!--Tải các file tĩnh lên từ folder static-->
 {% block title %} Home {% endblock title %}
 
 {% block content %}
@@ -17,18 +17,8 @@
                 <h1 class="navbar-brand">Owlfy</h1>   
             </div>
         </div>
-        <div class = "search-bar">
-            <form class="d-flex" action="{% url 'search_results' %}" method="get" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search Categories" aria-label="Search" name="q">
-            </form>          
-        </div>
-        <div class="login d-flex align-items-center">
-            {% if user.is_authenticated %}
-                <p class="text-white my-2 me-2">Welcome, {{ user.username }}!</p>
-                <a class="btn btn-primary me-2" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a class="btn btn-primary me-2" href="{% url 'login' %}">Login</a>
-            {% endif %}
+        <div class="login">
+            <a class="btn btn-primary me-2" href="">Login</a>
         </div>
     </div>
 </nav>

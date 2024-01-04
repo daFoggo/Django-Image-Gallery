@@ -21,4 +21,8 @@ class Gallery (models.Model):
 
     def __str__(self) -> str: #Trả về đường dẫn ảnh
         return self.image.url
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
