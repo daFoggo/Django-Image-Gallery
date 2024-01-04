@@ -1,5 +1,5 @@
 {% extends 'base.html' %} <!--Kế thừa từ base.html-->
-{% load static %} <!--Tải các file tĩnh lên từ folder static-->>
+{% load static %} <!--Tải các file tĩnh lên từ folder static-->
 {% block title %} Home {% endblock title %}
 
 {% block content %}
@@ -16,11 +16,6 @@
             <div>
                 <h1 class="navbar-brand">Owlfy</h1>   
             </div>
-        </div>
-        <div class = "search-bar">
-            <form class="d-flex" action="{% url 'search_results' %}" method="get" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search Categories" aria-label="Search" name="q">
-            </form>          
         </div>
         <div class="login">
             <a class="btn btn-primary me-2" href="">Login</a>
@@ -60,9 +55,11 @@
                     {% endfor %}
                     
                       <!--Nút thêm ảnh-->
+                    {% if user.is_authenticated %}
                     <li class="ms-auto">
                         <a class="btn btn-primary px-4" href="{% url 'upload-image'%}">Add Image</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

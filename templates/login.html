@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<<<<<<< HEAD
+
+=======
+<!-- Created By CodingLab - www.codinglabweb.com -->
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login </title> 
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap">
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="wrapper">
+        <div class="title"><span>Dive into Owlfy</span></div>
+
+        <form name="LoginForm" action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+=======
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title"><span>Welcome Lets login</span></div>
+        <form name="LoginForm" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="username" id="id_username" name="username" placeholder="Email or Phone" required>
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="id_password" name="password" placeholder="Password" required>
+          </div>
+<<<<<<< HEAD
+
+          {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login">
+          </div>
+          <div class="signup-link">Don't have an account? <a href="{% url 'SignUp' %}">Sign up now</a></div>
+        </form>
+        
+=======
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" >
+          </div>
+          <div class="signup-link">Not a member? <a href="{% url 'SignUp' %}">Signup now</a></div>
+        </form>
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
+      </div>
+    </div>
+
+  </body>
+<<<<<<< HEAD
+</html>
+=======
+</html>
+>>>>>>> 470f87e62d5f7de250337140662eb4b2be553a0b
