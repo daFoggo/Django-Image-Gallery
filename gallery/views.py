@@ -1,8 +1,10 @@
 from django.views import generic #Sử dụng module generic để xử lí các yêu cầu HTTP
 from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược về các trang html
-
+from django.shortcuts import render, redirect
+from django.contrib import auth, messages
 from .models import Category, Gallery 
-from .forms import GalleryForm, CategoryForm
+from .forms import GalleryForm, CategoryForm,LoginForm,signupform
+from django.contrib.auth.models import User,auth
 
 class Home(generic.ListView):
     model = Gallery #Sử dụng model Gallery cho lớp home
@@ -34,3 +36,33 @@ class CreateCategory(generic.CreateView):
     template_name = "create-category.html" #Trả về template create-category.html
     form_class = CategoryForm
     success_url = reverse_lazy('upload-image') #Quay về trang upload-image.html sau khi tạo category thành công
+
+
+def Login(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user =auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect ('index')
+        else :
+            messages.error(request,"Invalid login details")
+    return render(request, 'login.html', {'form': LoginForm})
+
+def logout(request):
+    auth.logout(request)
+    messages.info(request, 'You have been logged out!!')
+    return render(request, 'Home')
+
+def signup(request):
+    form = signupform()
+    if request.method =="POST":
+        form = signupform(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    context ={'form':form}
+    return render(request,'signup.html',context=context)
+    
