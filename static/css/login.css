@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Jetbrains Mono',sans-serif;
+}
+body{
+  background: #52b4ff;
+  overflow: hidden;
+}
+::selection{
+  background: #1f7af1;
+}
+.container{
+  max-width: 440px;
+  padding: 0 20px;
+  margin: 170px auto;
+}
+.wrapper{
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  height: 90px;
+  background: #2f8cf5;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form{
+  padding: 30px 25px 25px 25px;
+}
+.wrapper form .row{
+  height: 45px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.wrapper form .row input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .row input:focus{
+  border-color: #2f8cf5;
+  box-shadow: inset 0px 0px 2px 2px rgba(47,140,245,0.25);
+}
+form .row input::placeholder{
+  color: #999;
+}
+.wrapper form .row i{
+  position: absolute;
+  width: 47px;
+  height: 100%;
+  color: #fff;
+  font-size: 18px;
+  background: #2f8cf5;
+  border: 1px solid #1e75e9;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper form .pass{
+  margin: -8px 0 20px 0;
+}
+.wrapper form .pass a{
+  color: #2f8cf5;
+  font-size: 17px;
+  text-decoration: none;
+}
+.wrapper form .pass a:hover{
+  text-decoration: underline;
+}
+.messages li{
+  color: tomato;
+  margin: 15px;
+}
+.wrapper form .button input{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0px;
+  background: #2f8cf5;
+  border: 1px solid #2f8cf5;
+  cursor: pointer;
+}
+form .button input:hover{
+  background: #256ec2;
+}
+
+/* Style the anchor tag to look like a button */
+.a_tag {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust the padding as needed */
+  text-decoration: none;
+  background-color: #0074cc; /* Button background color */
+  color: #fff; /* Text color */
+  border: 1px solid #0074cc; /* Button border */
+  border-radius: 4px; /* Rounded corners */
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 130px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+  
+  /* Change button styles on hover */
+.a_tag:hover {
+  background-color: #0056b3; /* Hover background color */
+  color: #fff; /* Hover text color */
+  border-color: #0056b3; /* Hover border color */
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+  
+.wrapper form .signup-link{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+.wrapper form .signup-link a{
+  color: #2f8cf5;
+  text-decoration: none;
+}
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+  body{
+    background-color: #181926;
+  }
+  .wrapper{
+    border-radius: 7px;
+  }
+  .wrapper .title{
+    background: #383a58;
+  }
+  form .row input:focus{
+    border-color: #383a58;
+    box-shadow: inset 0px 0px 2px 2px rgba(32, 33, 50,0.25);
+  }
+  .wrapper form .row i{
+    background: #383a58;
+    border: 1px solid #383a58;
+  }
+  .wrapper form .pass a{
+    color: #383a58;
+  }
+  .wrapper form .button input{
+    background: #383a58;
+    border: 1px solid #383a58;
+  }
+  .wrapper form .button input:hover{
+    background: #383a58;
+  }
+  .wrapper form .signup-link{
+    color: #383a58;
+  }
+  .wrapper form .signup-link a{
+    color: #383a58;
+  }
+}

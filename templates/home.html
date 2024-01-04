@@ -22,8 +22,13 @@
                 <input class="form-control me-2" type="search" placeholder="Search Categories" aria-label="Search" name="q">
             </form>          
         </div>
-        <div class="login">
-            <a class="btn btn-primary me-2" href="">Login</a>
+        <div class="login d-flex align-items-center">
+            {% if user.is_authenticated %}
+                <p class="text-white my-2 me-2">Welcome, {{ user.username }}!</p>
+                <a class="btn btn-primary me-2" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a class="btn btn-primary me-2" href="{% url 'login' %}">Login</a>
+            {% endif %}
         </div>
     </div>
 </nav>
@@ -60,9 +65,11 @@
                     {% endfor %}
                     
                       <!--Nút thêm ảnh-->
+                    {% if user.is_authenticated %}
                     <li class="ms-auto">
                         <a class="btn btn-primary px-4" href="{% url 'upload-image'%}">Add Image</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
