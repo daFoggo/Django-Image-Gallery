@@ -10,6 +10,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+input[type="submit"] {
+    font-family: 'JetBrains Mono', monospace; /* Update with the correct font-family */
+}
+
 h1{
     text-align: center;
     color: #ffffff;

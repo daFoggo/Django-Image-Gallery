@@ -11,6 +11,10 @@ body{
   overflow: hidden;
 }
 
+input[type="submit"] {
+  font-family: 'JetBrains Mono', monospace;
+}
+
 ::selection{
   background: #1f7af1;
 }
