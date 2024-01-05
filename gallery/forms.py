@@ -50,6 +50,6 @@ class Signupform(UserCreationForm): #lớp Signupform kế thừa lớp UserCrea
         User.first_name =self.cleaned_data['first_name']
         User.last_name =self.cleaned_data['last_name']
         
-        if commit:
+        if commit: 
             User.save()
         return User
