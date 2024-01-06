@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
 }
 
 input[type="submit"] {
-    font-family: 'JetBrains Mono', monospace; /* Update with the correct font-family */
+    font-family: 'JetBrains Mono', monospace;
 }
 
 h1{
