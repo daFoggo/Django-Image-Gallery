@@ -4,6 +4,7 @@ body {
     background-size: cover;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -22,12 +23,13 @@ h1{
 
 form {
     max-width: 800px;
-    width: 100%;
     padding: 20px;
     margin: auto;
     background-color: #eef8ff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9); /* Adjust the scale factor as needed */
+    transform-origin: top center;
 }
 
 label {
@@ -50,7 +52,7 @@ input[type="email"] {
 }
 
 input[type="submit"] {
-    background-color: #52b4ff;
+    background-color: #356e94;
     color: #ffffff;
     padding: 12px 20px;
     border: none;
@@ -60,7 +62,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #2a91ff;
+    background-color: #529ece;
 }
 
 @media (prefers-color-scheme: dark) {
