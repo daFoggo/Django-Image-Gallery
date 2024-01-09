@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path, include #Sử dụng module oath, include để định nghĩa các URL
-from django.conf.urls.static import static #Dùng để định nghĩa các URL cho các file tĩnh
+from django.urls import path, include 
+from django.conf.urls.static import static # Sử dụng module static để tạo các URL cho các file tĩnh
     
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('gallery.urls')) #Định nghĩa các URL đã tạo từ trong app gallery
+    path('', include('gallery.urls')) # Tạo các URL cho app gallery
 ]
 
-#Tự động thêm URL các file tĩnh
+# Tạo các URL cho các file tĩnh
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  

@@ -1,10 +1,10 @@
-from django.views import generic #Sử dụng module generic để sử dụng các class view xử lí các HTTP request
-from django.urls import reverse_lazy #Sử dụng module reverse_lazy để quay ngược đến các URL
+from django.views import generic # Sử dụng module generic để sử dụng các class view xử lí các HTTP request
+from django.urls import reverse_lazy # Sử dụng module reverse_lazy để quay ngược đến các URL
 from django.shortcuts import render, redirect
 
-from django.contrib import auth, messages  #Sử dụng module messages để hiển thị thông báo
-from django.contrib.auth.decorators import login_required #Sử dụng module login_required sử dụng cho các tính năng cần đăng nhập
-from django.contrib.auth.models import auth 
+from django.contrib import auth, messages  # Sử dụng module messages để hiển thị thông báo
+from django.contrib.auth.decorators import login_required # Sử dụng module login_required sử dụng cho các tính năng cần đăng nhập
+from django.contrib.auth.models import auth  # Sử dụng module auth để xác thực người dùng
 
 from .models import Category, Gallery
 from .forms import GalleryForm, CategoryForm, LoginForm, Signupform
@@ -53,22 +53,22 @@ class SearchResultsView(generic.ListView): #Sử dụng model Gallery và dẫn 
         context['category'] = self.request.GET.get('q')
         return context
 
-def Login(request): 
-    if request.method == "POST":
+def Login(request): #Hàm Login sẽ xử lí các request đến trang login.html
+    if request.method == "POST": # Lấy dữ liệu từ các trường nhập vào và kiểm tra
         username = request.POST.get('username')
         password = request.POST.get('password')
         user =auth.authenticate(username=username,password=password)
         
         if user is not None:
             auth.login(request,user)
-            return redirect ('home')
+            return redirect ('home') # Quay về trang chủ khi đăng nhập thành công
         else :
-            messages.error(request,"Invalid login details")
+            messages.error(request,"Invalid login details") # Thông báo lỗi khi đăng nhập thất bại
             
     return render(request, 'login.html', {'form': LoginForm})
 
-@login_required #Chỉ cho phép người dùng đăng xuất khi đã đăng nhập
-def logout(request):
+@login_required # Chỉ cho phép người dùng đăng xuất khi đã đăng nhập
+def logout(request): # Tương tự Login
     auth.logout(request)
     messages.info(request, 'You have been logged out!!')
     return redirect('home')

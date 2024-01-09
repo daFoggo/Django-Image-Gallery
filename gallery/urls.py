@@ -1,13 +1,14 @@
-from django.urls import path #Sử dụng module path để định nghĩa các URL
-from .views import Home, UploadImage, CreateCategory, SearchResultsView #Import các class Home, UploadImage, CreateCategory từ file views.py
+from django.urls import path 
+from .views import Home, UploadImage, CreateCategory, SearchResultsView
 from . import views
 from django.contrib.auth import views as auth_views
 
+# Các đường dẫn dưới sẽ điều hướng đến các lớp, hàm trong views.py để xử lý
 urlpatterns = [
-    path('', Home.as_view(), name='home'), # Đường dẫn rỗng sẽ điều hướng đến class view Home
-    path('upload-image/', UploadImage.as_view(), name='upload-image'),  # Đường dẫn 'upload-image/' sẽ điều hướng đến class view UploadImage
-    path('create-category/', CreateCategory.as_view(), name ='create-category'), # Đường dẫn 'create-category/' sẽ điều hướng đến class view CreateCategory
-    path('search/', SearchResultsView.as_view(), name='search_results'), # Đường dẫn 'search/' sẽ điều hướng đến class view SearchResultsView
+    path('', Home.as_view(), name='home'),
+    path('upload-image/', UploadImage.as_view(), name='upload-image'),
+    path('create-category/', CreateCategory.as_view(), name ='create-category'), 
+    path('search/', SearchResultsView.as_view(), name='search_results'), 
     path('login', views.Login, name='login'), 
     path('logout/', views.logout, name='logout'),
     path('signup/',views.signup,name='SignUp')
